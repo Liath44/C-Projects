@@ -1,0 +1,62 @@
+Kompresja
+Wprowadzenie
+Kompresj¹ drzewa nazwiemy przekszta³cenie go w skierowany graf acykliczny (DAG) przez po³¹czenie wyst¹pieñ powtarzaj¹cych siê niepustych poddrzew.
+
+Powiemy, ¿e kompresja jest maksymalna, jeœli ³¹czy wszystkie wyst¹pienia powtarzaj¹cych siê poddrzew.
+
+Polecenie
+Napisz program, który wczyta z wejœcia tekstow¹ reprezentacjê drzewa binarnego dodatnich liczb ca³kowitych i wypisze na wyjœcie efekt jego maksymalnej kompresji.
+
+Postaæ danych
+Puste drzewo jest reprezentowane przez wiersz z liczb¹ 0 a drzewo niepuste przez ci¹g wierszy, z których pierwszy zawiera wartoœæ korzenia, w kolejnych jest reprezentacja lewego a po niej prawego poddrzewa.
+
+Postaæ wyniku
+Wynik programu otrzymujemy z danych wejœciowych, zastêpuj¹c drugie i ka¿de kolejne wyst¹pienie ci¹gu wierszy reprezentuj¹cych takie samo niepuste poddrzewo jednym wierszem. Umieszczamy w nim wartoœæ K - N, gdzie N to numer tego wiersza w tekœcie wynikowym, liczony od 1, a K to numer wiersza wyniku, w którym zaczyna siê reprezentacja pierwszego wyst¹pienia poddrzewa.
+
+Przyk³ady
+Do treœci zadania do³¹czone s¹ pliki .in z przyk³adowymi danymi i pliki .out z wynikami wzorcowymi.
+
+Dla danych przyklad1.in poprawny wynik to przyklad1.out.
+
+Dla danych przyklad2.in poprawny wynik to przyklad2.out.
+
+Dla danych przyklad3.in poprawny wynik to przyklad3.out.
+
+Walidacja i testy
+Rozwi¹zania zostan¹ poddane walidacji, wstêpnie badaj¹cej zgodnoœæ ze specyfikacj¹.
+
+Walidacja sprawdzi dzia³anie programu na przykladach do³¹czonych do treœci zadania.
+
+Pomyœlne przejœcie walidacji jest warunkiem dopuszczenia programu do testów poprawnoœci. Program, który walidacji nie przejdzie, dostanie zerow¹ ocenê poprawnoœci.
+
+Walidacja i testy zostan¹ przeprowadzone na komputerze students.
+
+Programy bêd¹ kompilowane poleceniem:
+
+gcc -std=c11 -pedantic -Wall -Wextra -Werror -fstack-protector-strong -g nazwa.c -o nazwa
+gdzie nazwa.c to nazwa pliku z kodem Ÿród³owym.
+
+Wymagane s¹ wszystkie wymienione opcje kompilatora. Nie bêd¹ do nich dodawane ¿adne inne.
+
+Zwracamy uwagê, ¿e poszczególne wersje kompilatora gcc mog¹ siê ró¿niæ sposobem obs³ugi tych samych opcji. Przed wys³aniem rozwi¹zania warto wiêc skompilowaæ je i przetestowaæ na students, w sposób opisany powy¿ej.
+
+Podczas walidacji i testów, program nazwa z rozwi¹zaniem bêdzie uruchamiany pod kontrol¹ programu Valgrind poleceniem:
+
+valgrind --leak-check=full -q ./nazwa
+Jeœli Valgrind wykryje b³¹d, to nawet, gdyby wynik by³ prawid³owy uznamy, ¿e program testu nie przeszed³.
+
+Opcja --leak-check=full wskazuje Valgrindowi, ¿e powinien, miêdzy innymi, szukaæ wycieków pamiêci.
+
+Przyjmujemy, ¿e wynik funkcji main() inny ni¿ 0 informuje o b³êdzie wykonania programu.
+
+Poprawnoœæ wyniku sprawdzamy, przekierowuj¹c na wejœcie programu zawartoœæ pliku .in i porównuj¹c rezultat, za pomoc¹ programu diff, z plikiem .out, np.:
+
+< przyklad.in ./nazwa | diff - przyklad.out
+Ocena poprawnoœci wyniku jest binarna. Uznajemy go za poprawny, je¿eli program diff nie wypisze ¿adnej ró¿nicy miêdzy wynikiem programu a wynikiem wzorcowym.
+
+Uwagi i wskazówki
+Wolno za³o¿yæ, ¿e dane s¹ poprawne.
+
+Wolno za³o¿yæ, ¿e ka¿dy wiersz danych, tak¿e ostatni, bêdzie zakoñczony reprezentacj¹ koñca wiersza \n.
+
+Efektywnoœæ rozwi¹zania mo¿e mieæ wp³yw na ocenê jego jakoœci.
