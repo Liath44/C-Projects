@@ -1,0 +1,120 @@
+Palindrom
+Wprowadzenie
+Gra Palindrom jest rozgrywana za pomoc¹ pionów na 64-polowej planszy podzielonej na kolumny, od a do h, oraz wiersze.
+
+W grze bierze udzia³ dwóch graczy, nazywanych Pierwszym i Drugim. Ka¿dy gracz ma swój rodzaj piona.
+
+Na pocz¹tku gry plansza jest pusta. Zaczyna gracz Pierwszy.
+
+Gracze, na przemian, wykonuj¹ ruch, k³ad¹c swój pion na polu planszy. Pion jest umieszczany w wybranej przez gracza kolumnie, w jej pierwszym wolnym polu, licz¹c od do³u planszy.
+
+Gracz wygrywa, jeœli swoim ruchem zbudowa³ palindrom z piêciu pionów na kolejnych polach tego samego wiersza, kolumny lub przek¹tnej.
+
+Polecenie
+Napisz program umo¿liwiaj¹cy grê w Palindrom dwóm graczom.
+
+Program, w pêtli:
+
+pisze diagram aktualnego stanu planszy i wskazuje, który gracz ma wykonaæ ruch;
+
+próbuje wczytaæ polecenie gracza;
+
+jeœli siê nie uda³o, bo dane siê skoñczy³y, koñczy pracê;
+
+jeœli wczyta³ polecenie b³êdne, ignoruje je;
+
+jeœli wczyta³ polecenie wykonania ruchu, wykonuje je;
+
+jeœli wczyta³ polecenie przerwania gry, koñczy pracê.
+
+Pêtla koñczy siê, gdy:
+
+skoñcz¹ siê dane, lub
+
+program dostanie polecenie przerwania gry, lub
+
+jeden z graczy wygra.
+
+Jeœli jeden z graczy wygra, program, na zakoñczenie pracy, pisze diagram koñcowego stanu planszy i informuje, kto wygra³.
+
+Postaæ danych
+Na wejœciu programu s¹ polecenia graczy. Ka¿de polecenie zajmuje jeden wiersz.
+
+Jedynym znakiem w wierszu polecenia wykonania ruchu jest ma³a litera od a do h, bêd¹ca nazw¹ kolumny, w której gracz chce umieœciæ pion.
+
+Polecenie jest poprawne, jeœli we wskazanej kolumnie jest wolne pole.
+
+Jedynym znakiem w wierszu polecenia przerwania gry jest =.
+
+Wiersz, który nie jest poprawnym poleceniem wykonania ruchu lub przerwania gry, jest poleceniem b³êdnym.
+
+Wolno za³o¿yæ, ¿e ka¿de polecenie u¿ytkownika, tak¿e ostatnie, jest w wierszu poprawnie zakoñczonym reprezentacj¹ koñca wiersza \n.
+
+Postaæ wyniku
+Na wyjœciu programu jest ci¹g diagramów planszy. Po ka¿dym diagramie jest wiersz z informacj¹, kto ma wykonaæ ruch lub kto wygra³.
+
+Diagram opisuje pole planszy za pomoc¹ znaku
+
+- gdy pole jest puste;
+
+1 gdy na polu jest pion gracza Pierwszego;
+
+2 gdy na polu jest pion gracza Drugiego.
+
+Przed ka¿dym znakiem opisuj¹cym pole jest spacja.
+
+Opisy pól s¹ pogrupowane w wiersze, a w wierszu uporz¹dkowane w kolejnoœci kolumn od a do h.
+
+Po ostatnim wierszu pól diagramu jest wiersz z nazwami kolumn. Ka¿da z nich jest poprzedzona spacj¹.
+
+Informacja o tym, kto ma wykonaæ ruch, ma postaæ wiersza z nazw¹ gracza, 1 lub 2, po której jest dwukropek.
+
+Informacja o tym, kto wygra³, ma postaæ wiersza z nazw¹ gracza, 1 lub 2, po której jest kropka.
+
+W tekœcie wynikowym programu nie ma ¿adnych znaków, które nie zosta³y wymienione powy¿ej.
+
+Ka¿dy wypisywany wiersz, tak¿e ostatni, jest zakoñczony koñcem wiersza \n.
+
+Przyk³ady
+Do treœci zadania do³¹czone s¹ pliki .in z przyk³adowymi danymi i pliki .out z wynikami wzorcowymi.
+
+Dla danych przyklad1.in poprawny wynik to przyklad1.out.
+
+Dla danych przyklad2.in poprawny wynik to przyklad2.out.
+
+Dla danych przyklad3.in poprawny wynik to przyklad3.out.
+
+Walidacja i testy
+Rozwi¹zania zostan¹ poddane walidacji, wstêpnie sprawdzaj¹cej zgodnoœæ ze specyfikacj¹. Pomyœlne przejœcie walidacji jest warunkiem dopuszczenia programu do testów poprawnoœci.
+
+Walidacja i testy zostan¹ przeprowadzone na komputerze students.
+
+Programy bêd¹ kompilowane poleceniem:
+
+gcc -std=c11 -pedantic -Wall -Wextra -Werror -fstack-protector-strong -g nazwa.c -o nazwa
+gdzie nazwa.c to nazwa pliku z kodem Ÿród³owym.
+
+Wymagane s¹ wszystkie wymienione opcje kompilatora. Nie bêd¹ do nich dodawane ¿adne inne.
+
+Podczas walidacji i testów, program nazwa z rozwi¹zaniem bêdzie uruchamiany pod kontrol¹ programu Valgrind poleceniem:
+
+valgrind -q ./nazwa
+Jeœli Valgrind wykryje b³¹d, to nawet, gdyby wynik by³ prawid³owy uznamy, ¿e program testu nie przeszed³.
+
+Przyjmujemy, ¿e wynik funkcji main() inny ni¿ 0 informuje o b³êdzie wykonania programu.
+
+Poprawnoœæ wyniku sprawdzamy, przekierowuj¹c na wejœcie programu zawartoœæ pliku .in i porównuj¹c rezultat, za pomoc¹ programu diff, z plikiem .out, np.
+
+< przyklad.in ./nazwa | diff - przyklad.out
+Ocena poprawnoœci wyniku jest binarna. Uznajemy go za poprawny, je¿eli program diff nie wypisze ¿adnej ró¿nicy miêdzy wynikiem programu a wynikiem wzorcowym.
+
+Wskazówki
+Pod Linuxem, pracuj¹c z programem interakcyjnie na konsoli, koniec danych sygnalizujemy, naciskaj¹c klawisze Ctrl-D.
+
+W przygotowaniu danych testowych mo¿e pomóc polecenie tee. Przesy³a ono dane z wejœcia na wyjœcie, jednoczeœnie zapisuj¹c ich kopiê w pliku, którego nazwa jest argumentem polecenia. Wykonanie
+
+tee test.in | ./nazwa
+uruchomi program nazwa w trybie interakcyjnym, tworz¹c kopiê danych testowych w pliku test.in. Dziêki temu test na tych samych danych bêdzie mo¿na powtórzyæ, wykonuj¹c polecenie
+
+< test.in ./nazwa > test.out
+Zwracamy uwagê, ¿e poszczególne wersje kompilatora gcc mog¹ siê ró¿niæ sposobem obs³ugi tych samych opcji. Przed wys³aniem rozwi¹zania warto wiêc skompilowaæ je i przetestowaæ na students, w sposób opisany powy¿ej.
