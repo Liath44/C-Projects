@@ -1,0 +1,105 @@
+Przekszta³cenie
+Wprowadzenie
+Prostok¹tna plansza do gry SameGame dzieli siê na pola, uporz¹dkowane w wiersze i kolumny.
+
+Ka¿de pole albo jest puste albo jest na nim klocek okreœlonego rodzaju.
+
+Gracz usuwa z planszy grupy s¹siaduj¹cych klocków tego samego rodzaju.
+
+Klocki opadaj¹ na puste pola w wierszach poni¿ej.
+
+Kolumny, w których s¹ jakieœ klocki, s¹ przesuwane w lewo, na miejsce kolumn pustych.
+
+Polecenie
+Napisz program przekszta³caj¹cy tekst w sposób wzorowany na grze SameGame.
+
+Dane programu okreœlaj¹ rozmiar planszy i jej pocz¹tkowy stan.
+
+Liczba wierszy planszy jest równa liczbie wierszy danych a liczba kolumn planszy jest równa maksymalnej d³ugoœci wiersza danych.
+
+Znaki ró¿ne od spacji, dalej nazywane znakami widocznymi, odpowiadaj¹ klockom w SameGame a spacje i miejsca za koñcem wiersza to pola puste.
+
+Zbiór widocznych znaków G w tekœcie nazywamy grup¹, jeœli spe³nione s¹ trzy warunki:
+
+wszystkie znaki w zbiorze G s¹ takie same,
+
+od ka¿dego znaku w zbiorze G mo¿na przejœæ do ka¿dego z pozosta³ych znaków w tym zbiorze, wykonuj¹c tylko kroki do bezpoœrednich s¹siadów w wierszu lub w kolumnie i poruszaj¹c siê przy tym wy³¹cznie po znakach ze zbioru G,
+
+zbioru G nie mo¿na rozszerzyæ, nie ³ami¹c zasad 1 i 2.
+
+Inaczej, ni¿ w grze SameGame, nie wymagamy, by grupa by³a co najmniej dwuelementowa.
+
+Mo¿na zauwa¿yæ, ¿e ka¿dy widoczny znak w tekœcie jednoznacznie okreœla grupê, do której nale¿y.
+
+Program wykonuje nastêpuj¹cy algorytm:
+
+czyta i porz¹dkuje dane,
+
+wymazuje jedn¹ grupê znaków widocznych, o ile taka grupa istnieje,
+
+porz¹dkuje i pisze wynik.
+
+Porz¹dkuj¹c tekst, program:
+
+dopóki jest choæ jeden widoczny znak, bezpoœrednio poni¿ej którego, w tej samej kolumnie, jest pole puste, przesuwa ten znak o jeden wiersz w dó³,
+
+usuwa wszystkie kolumny, w których nie ma widocznego znaku.
+
+Wymazanie grupy widocznych znaków polega na zast¹pieniu ich w tekœcie spacjami.
+
+Do wymazania wybierana jest grupa widocznych znaków, do której nale¿y znak w pierwszej kolumnie ostatniego wiersza tekstu.
+
+Postaæ danych
+Dane programu to dowolny tekst.
+
+Wolno za³o¿yæ, ¿e ka¿dy wiersz danych, tak¿e ostatni, bêdzie zakoñczony reprezentacj¹ koñca wiersza \n.
+
+Wolno za³o¿yæ, ¿e dane zmieszcz¹ siê w pamiêci a liczba wierszy i liczba kolumn bêdzie w zakresie typu int.
+
+Jeœli rozwi¹zanie na³o¿y dodatkowe ograniczenia na rozmiar danych, to jego ocena jakoœci zostanie obni¿ona o 1 punkt.
+
+Podczas walidacji i testów dane bêd¹ mia³y nie wiêcej ni¿ 20 wierszy i nie wiêcej ni¿ 80 kolumn.
+
+Za program, który ogranicza liczbê wierszy do 20 i liczbê kolumn do 80, mo¿na wiêc zdobyæ maksymalnie 19 punktów na 20 mo¿liwych.
+
+Postaæ wyniku
+Wynikiem programu s¹ niepuste wiersze przekszta³conych danych.
+
+Na koñcach wierszy nie s¹ wypisywane spacje.
+
+Ka¿dy wiersz, tak¿e ostatni, jest zakoñczony koñcem wiersza \n.
+
+Przyk³ady
+Do treœci zadania do³¹czone s¹ pliki .in z przyk³adowymi danymi i pliki .out z wynikami wzorcowymi.
+
+Dla danych przyklad1.in poprawny wynik to przyklad1.out.
+
+Dla danych przyklad2.in poprawny wynik to przyklad2.out.
+
+Dla danych przyklad3.in poprawny wynik to przyklad3.out.
+
+Walidacja i testy
+Rozwi¹zania zostan¹ poddane walidacji, wstêpnie sprawdzaj¹cej zgodnoœæ ze specyfikacj¹. Pomyœlne przejœcie walidacji jest warunkiem dopuszczenia programu do testów poprawnoœci.
+
+Walidacja i testy zostan¹ przeprowadzone na komputerze students.
+
+Programy bêd¹ kompilowane poleceniem:
+
+gcc -std=c11 -pedantic -Wall -Wextra -Werror -fstack-protector-strong -g nazwa.c -o nazwa
+gdzie nazwa.c to nazwa pliku z kodem Ÿród³owym.
+
+Wymagane s¹ wszystkie wymienione opcje kompilatora. Nie bêd¹ do nich dodawane ¿adne inne.
+
+Zwracamy uwagê, ¿e poszczególne wersje kompilatora gcc mog¹ siê ró¿niæ sposobem obs³ugi tych samych opcji. Przed wys³aniem rozwi¹zania warto wiêc skompilowaæ je i przetestowaæ na students, w sposób opisany powy¿ej.
+
+Podczas walidacji i testów, program nazwa z rozwi¹zaniem bêdzie uruchamiany pod kontrol¹ programu Valgrind poleceniem:
+
+valgrind -q ./nazwa
+Jeœli Valgrind wykryje b³¹d, to nawet, gdyby wynik by³ prawid³owy uznamy, ¿e program testu nie przeszed³.
+
+Przyjmujemy, ¿e wynik funkcji main() inny ni¿ 0 informuje o b³êdzie wykonania programu.
+
+Poprawnoœæ wyniku sprawdzamy, przekierowuj¹c na wejœcie programu zawartoœæ pliku .in i porównuj¹c rezultat, za pomoc¹ programu diff, z plikiem .out, np.:
+
+< przyklad.in ./nazwa | diff - przyklad.out
+Ocena poprawnoœci wyniku jest binarna. Uznajemy go za poprawny, je¿eli program diff nie wypisze ¿adnej ró¿nicy miêdzy wynikiem programu a wynikiem wzorcowym.
