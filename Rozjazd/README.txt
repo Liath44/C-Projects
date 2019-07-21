@@ -1,0 +1,1 @@
+rozjazd project concerns task 1 from enclosed egzam
