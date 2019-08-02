@@ -1,0 +1,1 @@
+Palindrom was my first bigger project concerning C language. Done in 3rd week of my C course. As such it may be the messiest entry in the entirety of subject repository.
